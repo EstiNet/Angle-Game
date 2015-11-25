@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 public class Central extends Application{
 	public static void main(String[] args){
 		System.out.println("Angle-Game loading...");
+		
 	}
 	 @Override
 	    public void start(Stage primaryStage) {
