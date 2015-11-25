@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -30,9 +31,11 @@ public class Central extends Application{
 	}
 	 @Override
 	    public void start(Stage primaryStage) {
-	        primaryStage.setTitle("Hello World!");
+	        primaryStage.setTitle("Angle Game");
 	        Button btn = new Button();
-	        btn.setText("Say 'Hello World'");
+	        TextField tf = new TextField();
+	        tf.setText("What's your name child?");
+	        btn.setText("Start!");
 	        btn.setOnAction(new EventHandler<ActionEvent>() {
 	 
 	            @Override
