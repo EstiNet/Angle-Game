@@ -18,19 +18,30 @@ package net.estinet.AngleGame;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import net.estinet.AngleGame.levels.Lvl1;
 
 public class Central extends Application{
+	Lvl1 lvl1 = new Lvl1();
 	public static void main(String[] args){
 		System.out.println("Angle-Game loading...");
 		launch(args);
 	}
-	 @Override
+	@Override
 	    public void start(Stage primaryStage) {
+		 	GridPane grid = new GridPane();
+		 	grid.setAlignment(Pos.CENTER);
+		 	grid.setHgap(10);
+		 	grid.setVgap(10);
+		 	grid.setPadding(new Insets(25, 25, 25, 25));
+		 
 	        primaryStage.setTitle("Angle Game");
 	        Button btn = new Button();
 	        TextField tf = new TextField();
@@ -40,12 +51,18 @@ public class Central extends Application{
 	 
 	            @Override
 	            public void handle(ActionEvent event) {
-	                System.out.println("Hello World!");
+	            	StaticStorage.name = tf.getText();
+	                System.out.println("And his name is " + tf.getText() + ". Not John Cena.");
+	                System.out.println("Initiating next stage.");
+	                lvl1.initialize();
+	                primaryStage.close();
 	            }
 	        });
 	        
 	        StackPane root = new StackPane();
-	        root.getChildren().add(btn);
+	        grid.add(btn, 0, 1);
+	        grid.add(tf, 0, 2);
+	        root.getChildren().add(grid);
 	        primaryStage.setScene(new Scene(root, 300, 250));
 	        primaryStage.show();
 	    }
